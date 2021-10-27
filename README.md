@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @giuraionut, computer engineer, graduate at ULBS Romania, and my goal to become a full-stack developer.
-- 👀 I’m interested in Java programming on back-end and Angular or other popular frames on front-end.
+- 👀 I’m interested in Java language on back-end and Angular or other popular frames on front-end.
 - 🌱 I’m currently learning Java, Spring Boot, Maven and related technologies. I'm also learning Angular and front-end technologies.
 - 📫 Email: giuraionut98@gmail.com
 
