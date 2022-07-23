@@ -2,7 +2,7 @@
 <h1 align="center">Hi 👋, I'm Giura Ionut</h1>
 <h3 align="center">Computer Engineer graduate from ULBS Romania</h3>
 
-- 🌱 I’m currently learning **Java, Spring Boot, Angular, React, MariaDB/MySQL, MongoDB, PostgreSQL**
+- 🌱 I’m currently learning **Java, Python, Spring Boot, Angular, React, MariaDB/MySQL, MongoDB, PostgreSQL**
 
 - 📫 How to reach me **giuraionut98@gmail.com**
 
