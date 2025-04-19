@@ -2,7 +2,7 @@
 <h1 align="center">Hi 👋, I'm Giura Ionut</h1>
 <h3 align="center">Computer Engineer graduate from ULBS Romania</h3>
 
-- 🌱 I’m currently learning **React, NextJS, SQL and noSQL databases and Python**
+- 🌱 I’m currently learning **React, NextJS, Prisma, SQL and noSQL databases and Python**
 
 - 📫 How to reach me **giuraionut98@gmail.com**
 
