@@ -9,7 +9,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      # Step 1: Generate the Main Dashboard
+      # Step 1: Generate the Main Dashboard (Optimized for Speed)
       - name: Main Dashboard
         uses: lowlighter/metrics@latest
         with:
@@ -18,29 +18,42 @@ jobs:
           template: classic
           base: header, repositories
           config_timezone: Europe/Bucharest
+          
+          # Speed Optimization
+          plugin_languages_indepth: no # Don't scan every line of every file
+          plugin_languages_analysis_timeout: 15 # Don't wait more than 15s for analysis
+          
+          # Stability
           retries: 3
           retries_delay: 300
           plugins_errors_fatal: yes
+          
+          # Layout
           config_order: header, repositories, languages, habits, achievements
           config_padding: 6%
+          
+          # Plugins
           plugin_languages: yes
           plugin_languages_details: percentage
           plugin_languages_sections: most-used
           plugin_languages_limit: 6
           plugin_languages_ignored: html, css, scss, tsql
+          
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_days: 30
           plugin_habits_facts: no
           plugin_habits_charts: yes
+          
           plugin_achievements: yes
           plugin_achievements_threshold: C
           plugin_achievements_display: compact
           plugin_achievements_secrets: no
+          
           filename: github-metrics.svg
           optimize: svg
 
-      # Step 2: Generate a custom "Header" SVG locally (No Vercel/Heroku)
+      # Step 2: Generate a simple Header
       - name: Header Section
         uses: lowlighter/metrics@latest
         with:
@@ -48,7 +61,4 @@ jobs:
           user: giuraionut
           template: classic
           base: header
-          base_indepth: yes
-          config_timezone: Europe/Bucharest
           filename: header.svg
-          # This creates a clean header with your avatar and name
