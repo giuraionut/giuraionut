@@ -37,12 +37,6 @@
   <img src="./github-metrics.svg" alt="GitHub Metrics" width="100%" />
 </div>
 
----
-
-<div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Daily Quote" />
-</div>
-
 <!---
 giuraionut/giuraionut is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 --->

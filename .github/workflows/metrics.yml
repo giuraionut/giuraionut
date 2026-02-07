@@ -1,10 +1,7 @@
 name: Metrics
 on:
-  # Schedule updates (every 24 hours)
   schedule: [{cron: "0 0 * * *"}]
-  # (optional) Allow manual dispatch
   workflow_dispatch:
-  # (optional) Run on push to main
   push: {branches: ["master", "main"]}
 jobs:
   github-metrics:
@@ -12,31 +9,47 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: General User Metrics
+      - name: Modern Minimalist Metrics
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: giuraionut
           template: classic
-          base: header, community, repositories, metadata
+          base: header, repositories
           config_timezone: Europe/Bucharest
           
-          # Plugin: Languages
+          # Hiding the "noise" (0 sponsors, 0 packages, etc.)
+          base_indepth: yes
+          base_extratabs: no
+          
+          # Layout & Style (Sleek/Modern)
+          config_order: header, repositories, languages, habits, achievements
+          config_padding: 6%
+          
+          # Plugin: Languages (Clean list)
           plugin_languages: yes
-          plugin_languages_ignored: html, css
-          plugin_languages_details: bytes-size, percentage
-          plugin_languages_limit: 8
+          plugin_languages_details: percentage
+          plugin_languages_sections: most-used
+          plugin_languages_limit: 6
+          plugin_languages_ignored: html, css, scss
           
-          # Plugin: Habits (Coding hours/activity)
+          # Plugin: Habits (Fixing the error by reducing scope)
           plugin_habits: yes
-          plugin_habits_facts: yes
+          plugin_habits_from: 200
           plugin_habits_days: 14
+          plugin_habits_facts: no # Hides the text facts that often error out
+          plugin_habits_charts: yes
           
-          # Plugin: Achievements
+          # Plugin: Achievements (Compact & Sleek)
           plugin_achievements: yes
-          plugin_achievements_threshold: B
+          plugin_achievements_threshold: C
           plugin_achievements_display: compact
+          plugin_achievements_limit: 5
           
-          # Output configuration
+          # Visual Options for "Shadcn" feel
+          config_animations: yes
+          # We use the tokyonight or default dark theme for that high-contrast look
+          # but we can force certain colors if needed.
+          
           filename: github-metrics.svg
           optimize: svg
