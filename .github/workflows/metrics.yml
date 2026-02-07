@@ -15,41 +15,36 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           user: giuraionut
           template: classic
+          # Only show essential header and repo count to avoid "0 sponsors/packages"
           base: header, repositories
           config_timezone: Europe/Bucharest
           
-          # Hiding the "noise" (0 sponsors, 0 packages, etc.)
-          base_indepth: yes
-          base_extratabs: no
-          
-          # Layout & Style (Sleek/Modern)
+          # Layout: Dashboard style with padding
           config_order: header, repositories, languages, habits, achievements
           config_padding: 6%
           
-          # Plugin: Languages (Clean list)
+          # Languages: Top 6 most used (ignoring boilerplate)
           plugin_languages: yes
           plugin_languages_details: percentage
           plugin_languages_sections: most-used
           plugin_languages_limit: 6
-          plugin_languages_ignored: html, css, scss
+          plugin_languages_ignored: html, css, scss, tsql
           
-          # Plugin: Habits (Fixing the error by reducing scope)
+          # Habits: Clean coding activity chart (removed 'facts' to prevent errors)
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_days: 14
-          plugin_habits_facts: no # Hides the text facts that often error out
+          plugin_habits_facts: no
           plugin_habits_charts: yes
+          plugin_habits_charts_type: classic
           
-          # Plugin: Achievements (Compact & Sleek)
+          # Achievements: Sleek badges at the bottom
           plugin_achievements: yes
           plugin_achievements_threshold: C
           plugin_achievements_display: compact
-          plugin_achievements_limit: 5
           
-          # Visual Options for "Shadcn" feel
+          # Appearance
           config_animations: yes
-          # We use the tokyonight or default dark theme for that high-contrast look
-          # but we can force certain colors if needed.
           
           filename: github-metrics.svg
           optimize: svg
