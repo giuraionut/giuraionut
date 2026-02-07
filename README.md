@@ -39,9 +39,3 @@
 </div>
 
 ---
-
-<br/>
-
-<div align="center">
-  <sub>Built with ❤️ and GitHub Actions. Updated every 24 hours.</sub>
-</div>
