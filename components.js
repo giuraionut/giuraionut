@@ -1,10 +1,10 @@
 import { THEME } from "./theme.js";
 import { ICONS } from "./icons.js";
 
-export const Icon = (name, size = 16, color = THEME.muted, style = {}) => {
+export const Icon = (name, size = 16, color = THEME.text, style = {}) => {
   const iconDef = ICONS[name] || ICONS.terminal;
-  
-  if (typeof iconDef === 'function') {
+
+  if (typeof iconDef === "function") {
     const iconObj = iconDef(size);
     if (style) {
       iconObj.props.style = { ...iconObj.props.style, ...style };
@@ -35,7 +35,6 @@ export const Card = (children, style = {}) => ({
     style: {
       display: "flex",
       flexDirection: "column",
-      backgroundColor: THEME.card,
       border: `1px solid ${THEME.border}`,
       borderRadius: "12px",
       padding: "16px",
@@ -55,13 +54,13 @@ export const Stat = (iconName, label, value, subtext) => ({
         props: {
           style: { display: "flex", alignItems: "center", marginBottom: "4px" },
           children: [
-            Icon(iconName, 12, THEME.muted),
+            Icon(iconName, 12, THEME.text),
             {
               type: "span",
               props: {
                 style: {
                   fontSize: "10px",
-                  color: THEME.muted,
+                  color: THEME.text,
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
                 },
@@ -77,7 +76,7 @@ export const Stat = (iconName, label, value, subtext) => ({
           style: {
             fontSize: "22px",
             fontWeight: "bold",
-            color: "#fafafa",
+            color: THEME["text-muted"],
             margin: "2px 0",
             lineHeight: "1.2",
           },
@@ -87,7 +86,11 @@ export const Stat = (iconName, label, value, subtext) => ({
       subtext && {
         type: "span",
         props: {
-          style: { fontSize: "10px", color: THEME.muted, lineHeight: "1.2" },
+          style: {
+            fontSize: "10px",
+            color: THEME["text-muted"],
+            lineHeight: "1.2",
+          },
           children: subtext,
         },
       },
@@ -110,7 +113,7 @@ export const Badge = (text) => {
     Figma: "figma",
     Blender: "blender",
     Photoshop: "photoshop",
-    Premiere: "premiere"
+    Premiere: "premiere",
   };
   const iconName = iconMap[text];
 
@@ -120,17 +123,17 @@ export const Badge = (text) => {
       style: {
         display: "flex",
         alignItems: "center",
-        padding: "3px 8px",
-        backgroundColor: "rgba(39, 39, 42, 0.5)",
+        padding: "6px 8px",
+        // backgroundColor: "rgba(39, 39, 42, 0.5)",
         border: `1px solid ${THEME.border}`,
         borderRadius: "4px",
         fontSize: "11px",
-        color: THEME.text,
+        color: THEME["text-muted"],
         marginRight: "8px",
         marginBottom: "8px",
       },
       children: [
-        iconName && Icon(iconName, 10, THEME.text, { marginRight: "6px" }),
+        iconName && Icon(iconName, 14, THEME.text, { marginRight: "6px" }),
         { type: "span", props: { children: text } },
       ].filter(Boolean),
     },

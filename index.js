@@ -107,8 +107,6 @@ async function generateSVG(stats) {
           flexDirection: "column",
           width: `${WIDTH}px`,
           height: `${totalHeight}px`,
-          backgroundColor: THEME.bg,
-          color: THEME.text,
           padding: "24px",
           fontFamily: "Inter",
           boxSizing: "border-box",
@@ -137,7 +135,7 @@ async function generateSVG(stats) {
           //             type: "div",
           //             props: {
           //               style: { display: "flex", padding: "6px 12px", backgroundColor: "rgba(59, 130, 246, 0.1)", border: "1px solid rgba(59, 130, 246, 0.2)", borderRadius: "20px" },
-          //               children: [{ type: "span", props: { style: { fontSize: "11px", fontWeight: "600", color: THEME.accent }, children: "Ionut Giura" } }]
+          //               children: [{ type: "span", props: { style: { fontSize: "11px", fontWeight: "600", color: THEME["text-accent"] }, children: "Ionut Giura" } }]
           //             }
           //           },
           //         ],
@@ -208,14 +206,14 @@ async function generateSVG(stats) {
                           marginBottom: "16px",
                         },
                         children: [
-                          Icon("terminal", 14, THEME.accent),
+                          Icon("terminal", 14, THEME["text-accent"]),
                           {
                             type: "span",
                             props: {
                               style: {
                                 fontSize: "14px",
                                 fontWeight: "600",
-                                color: "#fafafa",
+                                color: THEME.text,
                               },
                               children: "Technologies & Tools",
                             },
@@ -237,7 +235,7 @@ async function generateSVG(stats) {
                             props: {
                               style: {
                                 fontSize: "10px",
-                                color: THEME.muted,
+                                color: THEME["text-muted"],
                                 textTransform: "uppercase",
                                 marginBottom: "6px",
                               },
@@ -255,7 +253,7 @@ async function generateSVG(stats) {
                       },
                     })),
                   ],
-                  { flex: 1.2 },
+                  { flex: 1.3 },
                 ),
 
                 // Languages
@@ -268,7 +266,7 @@ async function generateSVG(stats) {
                           fontSize: "14px",
                           fontWeight: "600",
                           marginBottom: "16px",
-                          color: "#fafafa",
+                          color: THEME.text,
                         },
                         children: "Language Proficiency",
                       },
@@ -283,7 +281,6 @@ async function generateSVG(stats) {
                           borderRadius: "4px",
                           overflow: "hidden",
                           marginBottom: "16px",
-                          backgroundColor: "#18181b",
                         },
                         children: sortedLangs.map(([name, data]) => ({
                           type: "div",
@@ -340,7 +337,7 @@ async function generateSVG(stats) {
                                       props: {
                                         style: {
                                           fontSize: "12px",
-                                          color: THEME.text,
+                                          color: THEME["text-muted"],
                                         },
                                         children: name,
                                       },
@@ -353,7 +350,7 @@ async function generateSVG(stats) {
                                 props: {
                                   style: {
                                     fontSize: "12px",
-                                    color: THEME.muted,
+                                    color: THEME["text-muted"],
                                   },
                                   children: `${Math.round((data.size / totalLangSize) * 100)}%`,
                                 },
