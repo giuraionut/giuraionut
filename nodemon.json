@@ -1,0 +1,5 @@
+{
+  "watch": ["index.js", "icons.js", "theme.js"],
+  "ext": "js,json",
+  "exec": "node index.js"
+}

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon --watch index.js --exec 'node index.js' & browser-sync start --server --files 'github-metrics.svg, preview.html' --no-notify",
+    "dev": "concurrently \"nodemon\" \"browser-sync start --server --files 'github-metrics.svg, preview.html' --no-notify\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
     "nodemon": "^3.1.11"
   }
 }
