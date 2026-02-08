@@ -1,5 +1,4 @@
 export const WIDTH = 800;
-export const HEIGHT = 540;
 
 export const THEME = {
   bg: "transparent",
