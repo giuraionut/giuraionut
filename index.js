@@ -374,7 +374,7 @@ async function generateSVG(stats) {
     },
     {
       width: WIDTH,
-      height: HEIGHT,
+      height: totalHeight,
       fonts: [{ name: "Inter", data: fontData, weight: 400, style: "normal" }],
     },
   );
