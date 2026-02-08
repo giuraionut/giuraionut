@@ -278,7 +278,7 @@ async function generateSVG(stats) {
                           display: "flex",
                           width: "100%",
                           height: "8px",
-                          borderRadius: "4px",
+                          borderRadius: "6px",
                           overflow: "hidden",
                           marginBottom: "16px",
                         },
