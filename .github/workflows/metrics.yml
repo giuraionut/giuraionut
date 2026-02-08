@@ -9,31 +9,33 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Simplified Reliable Metrics
-        uses: lowlighter/metrics@latest
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: giuraionut
-          template: classic
-          
-          # Core sections only (These almost never fail)
-          base: header, repositories, metadata
-          config_timezone: Europe/Bucharest
-          
-          # Layout
-          config_order: header, repositories, languages, followup
-          config_padding: 6%
-          
-          # Languages (The most robust plugin)
-          plugin_languages: yes
-          plugin_languages_details: percentage
-          plugin_languages_sections: most-used
-          plugin_languages_limit: 8
-          plugin_languages_ignored: html, css, scss
-          
-          # Followup (Shows project status - very stable alternative to habits)
-          plugin_followup: yes
-          plugin_followup_sections: user
-          
-          filename: github-metrics.svg
-          optimize: svg
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install fonts
+        run: |
+          sudo apt-get update && sudo apt-get install -y fonts-dejavu-core
+          mkdir -p fonts
+          cp /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf fonts/Inter-Regular.ttf
+
+      - name: Generate metrics
+        run: node index.js
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add github-metrics.svg
+          git commit -m "Update metrics" || exit 0
+          git push

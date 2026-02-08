@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Preview</title>
+    <style>
+        body {
+            background-color: #010409;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+        .preview-container {
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            background-color: #0d1117;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <!-- The SVG will be injected here by browser-sync or seen directly -->
+        <img src="github-metrics.svg" id="metrics-svg" />
+    </div>
+    <script>
+        // Simple script to bypass cache when the file changes
+        setInterval(() => {
+            const img = document.getElementById('metrics-svg');
+            const src = img.src.split('?')[0];
+            img.src = src + '?t=' + new Date().getTime();
+        }, 2000);
+    </script>
+</body>
+</html>

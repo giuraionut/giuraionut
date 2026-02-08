@@ -1,0 +1,34 @@
+{
+  "name": "github-profile",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <h1>Hi, I'm Ionut Giura 👋</h1>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --watch index.js --exec 'node index.js' & browser-sync start --server --files 'github-metrics.svg, preview.html' --no-notify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giuraionut/giuraionut.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/giuraionut/giuraionut/issues"
+  },
+  "homepage": "https://github.com/giuraionut/giuraionut#readme",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "dotenv": "^17.2.4",
+    "octokit": "^5.0.5",
+    "satori": "^0.19.1",
+    "satori-html": "^0.3.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "nodemon": "^3.1.11"
+  }
+}
