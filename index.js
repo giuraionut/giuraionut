@@ -4,7 +4,7 @@ import satori from "satori";
 import { Octokit } from "octokit";
 import dotenv from "dotenv";
 
-import { WIDTH, HEIGHT, THEME } from "./theme.js";
+import { WIDTH, THEME } from "./theme.js";
 import { Card, Stat, Badge, Icon } from "./components.js";
 
 dotenv.config();
